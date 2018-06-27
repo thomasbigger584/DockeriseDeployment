@@ -1,0 +1,9 @@
+version: '2'
+services:
+    skylark-elasticsearch-testing:
+        image: elasticsearch:2.4.6
+        volumes:
+            - ~/volumes/jhipster/skylark/testing/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9202:9200
+            - 9302:9300

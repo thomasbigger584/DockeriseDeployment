@@ -1,0 +1,56 @@
+image: atlassian/default-image:2
+options:
+  max-time: 60
+clone:
+  depth: 1
+pipelines:
+  branches:
+    testing:
+          - step:
+                  name: Build Image for Testing
+                  services:
+                    - docker
+                  caches:
+                    - docker
+                    - maven
+                    - node
+                  script:
+                    - bash src/main/docker/deployment/build_push_docker.sh testing
+          - step:
+                  name: Deploy Testing
+                  deployment: test
+                  script:
+                    - bash src/main/docker/deployment/deploy_docker.sh testing
+    master:
+          - step:
+                  name: Build Image for Staging
+                  services:
+                    - docker
+                  caches:
+                    - docker
+                    - maven
+                    - node
+                  script:
+                    - bash src/main/docker/deployment/build_push_docker.sh staging
+          - step:
+                  name: Deploy Staging
+                  deployment: staging
+                  script:
+                    - bash src/main/docker/deployment/deploy_docker.sh staging
+  tags:
+      release-*:
+          - step:
+                  name: Build Image for Production
+                  services:
+                    - docker
+                  caches:
+                    - docker
+                    - maven
+                    - node
+                  script:
+                    - bash src/main/docker/deployment/build_push_docker.sh prod
+          - step:
+                  name: Deploy Production
+                  deployment: production
+                  script:
+                    - bash src/main/docker/deployment/deploy_docker.sh prod

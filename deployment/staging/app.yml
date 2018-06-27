@@ -1,0 +1,19 @@
+version: '2'
+services:
+    skylark-app-staging:
+        image: docker.cloudspace.pw/skylark-backend:staging
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://skylark-mysql-staging:3306/skylark?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=skylark-elasticsearch-staging:9300
+        ports:
+            - 8081:8080
+    skylark-mysql-staging:
+        extends:
+            file: mysql.yml
+            service: skylark-mysql-staging
+    skylark-elasticsearch-staging:
+        extends:
+            file: elasticsearch.yml
+            service: skylark-elasticsearch-staging
