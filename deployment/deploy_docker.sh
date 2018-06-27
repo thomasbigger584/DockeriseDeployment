@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-APP_NAME=skylark
+APP_NAME=<appname>
 
-REMOTE_HOST=root@178.128.40.241
+REMOTE_HOST=root@<ip>
 REGISTRY=docker.cloudspace.pw
 REGISTRY_USERNAME=pai
-REGISTRY_PASSWORD=6vvVrNfRR5LvlB2efaKx
+REGISTRY_PASSWORD=<password>
 
 REPOSITORY=$APP_NAME-backend
 TAG=$1

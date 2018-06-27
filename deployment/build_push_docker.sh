@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-APP_NAME=skylark
+APP_NAME=<appname>
 
 REGISTRY=docker.cloudspace.pw
 REGISTRY_USERNAME=pai
-REGISTRY_PASSWORD=6vvVrNfRR5LvlB2efaKx
+REGISTRY_PASSWORD=<password>
 
 REPOSITORY=$APP_NAME-backend
 TAG=$1

@@ -9,4 +9,4 @@ cp bitbucket-pipelines.yml $PROJECT_ROOT
 
 cp Dockerfile $PROJECT_ROOT/src/main/docker/
 
-echo "Update the docker-compose service names for this app"
+echo "Update the docker-compose service names and registry details for this app"
