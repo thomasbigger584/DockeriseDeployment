@@ -9,6 +9,8 @@ services:
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=skylark-elasticsearch-prod:9300
         ports:
             - 8080:8080
+        volumes:
+            - ~/volumes/jhipster/skylark/prod/app/:/root/
     skylark-mysql-prod:
         extends:
             file: mysql.yml

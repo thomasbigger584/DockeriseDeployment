@@ -9,6 +9,8 @@ services:
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=skylark-elasticsearch-staging:9300
         ports:
             - 8081:8080
+        volumes:
+            - ~/volumes/jhipster/skylark/staging/app/:/root/
     skylark-mysql-staging:
         extends:
             file: mysql.yml
