@@ -38,8 +38,8 @@ pipelines:
                   script:
                     - bash src/main/docker/deployment/deploy_docker.sh staging
   tags:
-      release-*:
-          - step:
+    release-*:
+        - step:
                   name: Build Image for Production
                   services:
                     - docker
@@ -49,7 +49,7 @@ pipelines:
                     - node
                   script:
                     - bash src/main/docker/deployment/build_push_docker.sh prod
-          - step:
+        - step:
                   name: Deploy Production
                   deployment: production
                   script:
