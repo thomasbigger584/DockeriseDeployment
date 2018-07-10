@@ -9,7 +9,7 @@ REGISTRY_PASSWORD=<password>
 REPOSITORY=$APP_NAME-backend
 TAG=$1
 
-./mvnw clean compile -Pprod package -DskipTests=true -e
+./mvnw -B clean compile -Pprod package -DskipTests=true -e
 
 docker build --build-arg JAVA_OPTS=-Dtag=$TAG \
 			 --tag $REPOSITORY:$TAG \
